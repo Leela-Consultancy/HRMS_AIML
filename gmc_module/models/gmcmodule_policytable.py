@@ -3,6 +3,6 @@ from odoo import models, fields
 
 
 class GMCModulePolicyTable(models.Model):
-	_name = 'gmc module.policy table'	
+	_name = 'gmcmodule.policytable'	
 	name = fields.Char('Title', required=True)	
 	

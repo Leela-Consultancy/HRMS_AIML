@@ -6,7 +6,7 @@ name="Policy Data"
 res_model="GMCModule.PolicyTable" />
 
 <menuitem
- id="odoomodule_odootable_menu"
+ id="gmcmodule_policytable_menu"
  name="GMC Module" 
  action="gmcmodule_policytable_action"
  parent=""
