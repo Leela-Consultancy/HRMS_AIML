@@ -39,13 +39,24 @@ Traceback (most recent call last):
     loaded_modules, update_module, models_to_check)
   File "C:\Program Files\Odoo 16.0.20221031\server\odoo\modules\loading.py", line 373, in load_marked_modules
     perform_checks=perform_checks, models_to_check=models_to_check
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\modules\loading.py", line 188, in load_module_graph
-    load_openerp_module(package.name)
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\modules\module.py", line 432, in load_openerp_module
-    __import__('odoo.addons.' + module_name)
-  File "c:\program files\odoo 16.0.20221031\server\addons\gmc_module\__init__.py", line 2, in <module>
-    from . import controllers
-ImportError: cannot import name 'controllers' from 'odoo.addons.gmc_module' (c:\program files\odoo 16.0.20221031\server\addons\gmc_module\__init__.py)
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\modules\loading.py", line 230, in load_module_graph
+    load_data(cr, idref, mode, kind='data', package=package)
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\modules\loading.py", line 71, in load_data
+    tools.convert_file(cr, package.name, filename, idref, mode, noupdate, kind)
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\tools\convert.py", line 763, in convert_file
+    convert_xml_import(cr, module, fp, idref, mode, noupdate)
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\tools\convert.py", line 829, in convert_xml_import
+    obj.parse(doc.getroot())
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\tools\convert.py", line 749, in parse
+    self._tag_root(de)
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\tools\convert.py", line 709, in _tag_root
+    raise ParseError(msg) from None  # Restart with "--log-handler odoo.tools.convert:DEBUG" for complete traceback
+odoo.tools.convert.ParseError: while parsing file:/c:/program%20files/odoo%2016.0.20221031/server/addons/gmc_module/views/gmcmodule_policytable.xml:6
+Invalid model name 'GMCModule.PolicyTable' in action definition.
+
+View error context:
+'-no context-'
+
 
 The above server error caused the following client error:
 RPC_ERROR: Odoo Server Error
