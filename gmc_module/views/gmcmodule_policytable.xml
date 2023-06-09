@@ -14,7 +14,7 @@ res_model="GMCModule.PolicyTable" />
 
 <record id ="gmcmodule_policytable_view_form" model="ir.ui.view">
    <field name="Policy Data">Application Table Name Form</field>
-   <field name="model">odoomodule.odootable</field>
+   <field name="model">gmcmodule.policytable</field>
    <field name="arch" type="xml">
          <form>
  	     <group>
@@ -26,7 +26,7 @@ res_model="GMCModule.PolicyTable" />
 
 <record id="gmcmodule_policytable_view_tree" model="ir.ui.view">
   <field name="Policy Data">Application Table Name List</field>
-  <field name="model">odoomodule.odootable</field>
+  <field name="model">gmcmodule.policytable</field>
   <field name="arch" type="xml">
     <tree>
       <field name="Policy Data"/>
