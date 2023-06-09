@@ -1,6 +1,39 @@
 RPC_ERROR
 Odoo Server Error
 Traceback (most recent call last):
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\tools\convert.py", line 698, in _tag_root
+    f(rec)
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\tools\convert.py", line 599, in _tag_record
+    record = model._load_records([data], self.mode == 'update')
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\models.py", line 4368, in _load_records
+    records = self._load_records_create([data['values'] for data in to_create])
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\models.py", line 4290, in _load_records_create
+    return self.create(values)
+  File "<decorator-gen-198>", line 2, in create
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\api.py", line 410, in _model_create_multi
+    return create(self, arg)
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\addons\website\models\ir_ui_view.py", line 55, in create
+    return super().create(vals_list)
+  File "<decorator-gen-47>", line 2, in create
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\api.py", line 410, in _model_create_multi
+    return create(self, arg)
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\addons\base\models\ir_ui_view.py", line 554, in create
+    result = super(View, self.with_context(ir_ui_view_partial_validation=True)).create(vals_list)
+  File "<decorator-gen-65>", line 2, in create
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\api.py", line 410, in _model_create_multi
+    return create(self, arg)
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\addons\base\models\ir_fields.py", line 665, in create
+    recs = super().create(vals_list)
+  File "<decorator-gen-13>", line 2, in create
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\api.py", line 410, in _model_create_multi
+    return create(self, arg)
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\models.py", line 3902, in create
+    raise ValueError("Invalid field %r on model %r" % (key, self._name))
+ValueError: Invalid field 'Policy Data' on model 'ir.ui.view'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
   File "C:\Program Files\Odoo 16.0.20221031\server\odoo\http.py", line 1583, in _serve_db
     return service_model.retrying(self._serve_ir_http, self.env)
   File "C:\Program Files\Odoo 16.0.20221031\server\odoo\service\model.py", line 134, in retrying
@@ -49,14 +82,20 @@ Traceback (most recent call last):
     obj.parse(doc.getroot())
   File "C:\Program Files\Odoo 16.0.20221031\server\odoo\tools\convert.py", line 749, in parse
     self._tag_root(de)
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\tools\convert.py", line 709, in _tag_root
-    raise ParseError(msg) from None  # Restart with "--log-handler odoo.tools.convert:DEBUG" for complete traceback
-odoo.tools.convert.ParseError: while parsing file:/c:/program%20files/odoo%2016.0.20221031/server/addons/gmc_module/views/gmcmodule_policytable.xml:6
-Invalid model name 'GMCModule.PolicyTable' in action definition.
-
-View error context:
-'-no context-'
-
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\tools\convert.py", line 715, in _tag_root
+    )) from e
+odoo.tools.convert.ParseError: while parsing file:/c:/program%20files/odoo%2016.0.20221031/server/addons/gmc_module/views/gmcmodule_policytable.xml:15, somewhere inside
+<record id="gmcmodule_policytable_view_form" model="ir.ui.view">
+   <field name="Policy Data">Application Table Name Form</field>
+   <field name="model">gmcmodule.policytable</field>
+   <field name="arch" type="xml">
+         <form>
+ 	     <group>
+	        <field name="Policy Data"/>	
+	     </group>
+	 </form>
+   </field>
+</record>
 
 The above server error caused the following client error:
 RPC_ERROR: Odoo Server Error
