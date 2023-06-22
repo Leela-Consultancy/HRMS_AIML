@@ -1,7 +1,4 @@
-from operator import index
 from odoo import models, fields
-
-
 
 class GmcModuleEmployeeTable(models.Model):
 	_name = 'gmcmodule.employeetable'	
