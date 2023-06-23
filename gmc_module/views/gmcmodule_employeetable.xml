@@ -25,7 +25,7 @@ res_model="gmcmodule.employeetable" />
           <field name="suminsured"/>	
           <field name="proratapremium"/>	
           <field name="coveringdays"/>	
-          <field name="startdate"/>	
+          <field name="strdate"/>	
           <field name="enddate"/>	
 	     </group>
 	 </form>
@@ -39,7 +39,7 @@ res_model="gmcmodule.employeetable" />
     <tree>
       <field name="cardno"/>
       <field name="proratapremium"/>
-      <field name="startdate"/>
+      <field name="strdate"/>
       <field name="enddate"/>
     </tree>
     </field>

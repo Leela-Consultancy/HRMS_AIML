@@ -15,63 +15,35 @@ Traceback (most recent call last):
     result = endpoint(**request.params)
   File "C:\Program Files\Odoo 16.0.20221031\server\odoo\http.py", line 696, in route_wrapper
     result = endpoint(self, *args, **params_ok)
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\addons\web\controllers\dataset.py", line 46, in call_button
-    action = self._call_kw(model, method, args, kwargs)
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\addons\web\controllers\dataset.py", line 42, in call_kw
+    return self._call_kw(model, method, args, kwargs)
   File "C:\Program Files\Odoo 16.0.20221031\server\odoo\addons\web\controllers\dataset.py", line 33, in _call_kw
     return call_kw(request.env[model], method, args, kwargs)
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\api.py", line 461, in call_kw
-    result = _call_kw_multi(method, model, args, kwargs)
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\api.py", line 448, in _call_kw_multi
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\api.py", line 457, in call_kw
+    result = _call_kw_model(method, model, args, kwargs)
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\api.py", line 430, in _call_kw_model
     result = method(recs, *args, **kwargs)
-  File "<decorator-gen-74>", line 2, in button_immediate_install
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\addons\base\models\ir_module.py", line 76, in check_and_log
-    return method(self, *args, **kwargs)
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\addons\base\models\ir_module.py", line 491, in button_immediate_install
-    return self._button_immediate_function(type(self).button_install)
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\addons\base\models\ir_module.py", line 615, in _button_immediate_function
-    registry = modules.registry.Registry.new(self._cr.dbname, update_module=True)
-  File "<decorator-gen-14>", line 2, in new
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\tools\func.py", line 87, in locked
-    return func(inst, *args, **kwargs)
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\modules\registry.py", line 90, in new
-    odoo.modules.load_modules(registry, force_demo, status, update_module)
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\modules\loading.py", line 489, in load_modules
-    loaded_modules, update_module, models_to_check)
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\modules\loading.py", line 373, in load_marked_modules
-    perform_checks=perform_checks, models_to_check=models_to_check
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\modules\loading.py", line 230, in load_module_graph
-    load_data(cr, idref, mode, kind='data', package=package)
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\modules\loading.py", line 71, in load_data
-    tools.convert_file(cr, package.name, filename, idref, mode, noupdate, kind)
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\tools\convert.py", line 763, in convert_file
-    convert_xml_import(cr, module, fp, idref, mode, noupdate)
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\tools\convert.py", line 829, in convert_xml_import
-    obj.parse(doc.getroot())
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\tools\convert.py", line 749, in parse
-    self._tag_root(de)
-  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\tools\convert.py", line 709, in _tag_root
-    raise ParseError(msg) from None  # Restart with "--log-handler odoo.tools.convert:DEBUG" for complete traceback
-odoo.tools.convert.ParseError: while parsing file:/c:/program%20files/odoo%2016.0.20221031/server/addons/gmc_module/views/gmcmodule_policytable.xml:15
-Error while validating view near:
-
- 	     <group>
-	        <field name="Policy Data"/>	
-	     </group>
-	 </form>
-Field "Policy Data" does not exist in model "gmcmodule.policytable"
-
-View error context:
-{'file': 'c:\\program files\\odoo '
-         '16.0.20221031\\server\\addons\\gmc_module\\views\\gmcmodule_policytable.xml',
- 'line': 4,
- 'name': 'Application Table Name Form',
- 'view': ir.ui.view(1187,),
- 'view.model': 'gmcmodule.policytable',
- 'view.parent': ir.ui.view(),
- 'xmlid': 'gmcmodule_policytable_view_form'}
-
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\addons\web\models\models.py", line 62, in web_search_read
+    records = self.search_read(domain, fields, offset=offset, limit=limit, order=order)
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\models.py", line 4985, in search_read
+    result = records.read(fields, **read_kwargs)
+  File "C:\Program Files\Odoo 16.0.20221031\server\odoo\models.py", line 2968, in read
+    raise ValueError("Invalid field %r on model %r" % (name, self._name))
+ValueError: Invalid field 'startdate' on model 'gmcmodule.employeetable'
 
 The above server error caused the following client error:
-RPC_ERROR: Odoo Server Error
+OwlError: The following error occurred in onWillStart: "Odoo Server Error"
+    at wrapError (http://localhost:8069/web/assets/276-994b0b0/web.assets_common.min.js:1592:77)
+    at onWillStart (http://localhost:8069/web/assets/276-994b0b0/web.assets_common.min.js:1598:117)
+    at useModel (http://localhost:8069/web/assets/277-f0220e1/web.assets_backend.min.js:4772:1)
+    at ListController.setup (http://localhost:8069/web/assets/277-f0220e1/web.assets_backend.min.js:4490:676)
+    at new ComponentNode (http://localhost:8069/web/assets/276-994b0b0/web.assets_common.min.js:1553:202)
+    at http://localhost:8069/web/assets/276-994b0b0/web.assets_common.min.js:2080:6
+    at View.slot1 (eval at compile (http://localhost:8069/web/assets/276-994b0b0/web.assets_common.min.js:2045:370), <anonymous>:15:36)
+    at callSlot (http://localhost:8069/web/assets/276-994b0b0/web.assets_common.min.js:1657:25)
+    at WithSearch.template (eval at compile (http://localhost:8069/web/assets/276-994b0b0/web.assets_common.min.js:2045:370), <anonymous>:8:12)
+    at Fiber._render (http://localhost:8069/web/assets/276-994b0b0/web.assets_common.min.js:1491:96)
+
+Caused by: RPC_ERROR: Odoo Server Error
     at makeErrorFromResponse (http://localhost:8069/web/assets/277-f0220e1/web.assets_backend.min.js:970:163)
     at XMLHttpRequest.<anonymous> (http://localhost:8069/web/assets/277-f0220e1/web.assets_backend.min.js:978:13)
