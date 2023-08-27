@@ -18,7 +18,6 @@ class GmcModuleEmployeeTable(models.Model):
 		for record in self:
 			record.proratapremium = ((record.poltype_id.premium)/365) * record.coveringdays * record.suminsured
 
-	@api.multi
 	def name_get(self):
 		res = []
 		for record in self:
